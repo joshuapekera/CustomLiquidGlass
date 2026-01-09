@@ -5,13 +5,43 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    VStack {
-      Image(systemName: "globe")
-        .imageScale(.large)
-        .foregroundStyle(.tint)
-      Text("Hello, world!")
+    NavigationStack {
+      List {
+        Section("Liquid Lens") {
+          NavigationLink("Liquid Lens") {
+            LiquidLensViewDemo()
+          }
+        }
+
+        Section("CA Filter Displacement Map") {
+          NavigationLink("Color Displacement Map") {
+            DisplacementFilterDemo()
+          }
+          NavigationLink("Image Displacement Map") {
+            ImageDisplacementMapViewDemo()
+          }
+        }
+
+        Section("Glass Displacement Map") {
+          NavigationLink("SDF Displacement Map") {
+            SDFLayerDemo()
+          }
+        }
+
+        Section("Glass Effects") {
+          NavigationLink("Glass Displacement") {
+            GlassDisplacementEffectViewDemo()
+          }
+          NavigationLink("Glass Highlight") {
+            GlassHighlightEffectViewDemo()
+          }
+          NavigationLink("Chromatic Aberration") {
+            GlassChromaticAberrationViewDemo()
+          }
+        }
+      }
+      .navigationTitle("Custom Liquid Glass")
     }
-    .padding()
   }
 }
 
